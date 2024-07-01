@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+$Violet: #674baf;
+$Soft-Magenta: #e882e8;
+$min-weight: 400;
+$max-weigth: 600;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('../images/bg-desktop.svg'),
+  $Violet;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+header {
+  width: 90%;
+  img {
+    width: 220px;
+  }
+}
+main {
+  width: 90%;
+  display: flex;
+  gap: 5%;
+  .left {
+    padding-top: 20px;
+    animation: fromLeft;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: .9s;
+    animation-fill-mode: both;
+  }
+  .right {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fromRight;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: .9s;
+    animation-fill-mode: both;
+    h1 {
+      font-weight: $max-weigth;
+    }
+    p {
+      font-family: 'Open Sans';
+      padding-top: 15px;
+      font-weight: $min-weight;
+    }
+    button {
+      width: 200px;
+      margin-top: 20px;
+      padding-block: 15px;
+      font-size: 1.1rem;
+      color: $Violet;
+      border: none;
+      border-radius: 100vmax;
+      background-color: #fff;
+      cursor: pointer;
+      transition: .25s ease-out;
+      &:hover {
+        background-color: $Soft-Magenta;
+        color: #fff;
+      }
+    }
+  }
+}
+footer {
+  width: 90%;
+  text-align: end;
+  animation: fromBottom;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: .9s;
+  animation-fill-mode: both;
+  ion-icon {
+    padding-left: 15px;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: .25s ease-out;
+    &:hover {
+      color: $Soft-Magenta;
+      scale: 1.1;
+    }
+  }
+}
+/* Animations */
+@keyframes fromLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fromRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (width <= 450px) {
+  body {
+    background: url('../images/bg-mobile.svg'), $Violet;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+  }
+  header {
+    margin-top: 30px;
+    img {
+      width: 150px;
+    }
+  }
+  main {
+    flex-direction: column;
+    .left {
+      img {
+        width: 100%;
+      }
+    }
+    .right {
+      text-align: center;
+      align-items: center;
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  footer {
+    text-align: center;
+    margin-block: 40px;
+  }
+}
